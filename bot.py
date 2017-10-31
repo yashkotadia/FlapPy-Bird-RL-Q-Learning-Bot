@@ -25,7 +25,7 @@ class Bot:
         plt.ion()
 
     def maxQ(self, state):
-        # Higher the Q-value, lesser the probability of the corresponding action being taken
+        # Chooses the higher Q-value with a probability of (1-epsilon)
         max_val = max(self.Q[state])
         max_act = self.Q[state].index(max_val)
 
