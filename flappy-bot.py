@@ -10,6 +10,7 @@ from pygame.locals import *
 
 # FPS = 30 for normal gamespeed
 # Here i have set FPS to a very high value which pushes the game to run at the highest FPS possible
+# Reduce it to 30 to run the game at normal pace
 FPS = 10000000
 SCREENWIDTH  = 288
 SCREENHEIGHT = 512
