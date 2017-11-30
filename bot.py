@@ -10,11 +10,13 @@ class Bot:
         self.counter = 0
         self.alpha = 0.7
         self.discount = .9
-        self.fileName = 'Q-table-discretisation-4.pkl'
+        self.fileName = 'Q-table.pkl'
+        self.scoreFile = 'scores.pkl'
         try:
             with open(self.fileName, 'rb') as f:
                 self.Q = pickle.load(f)
         except FileNotFoundError:
+            print('New Learning')
             self.Q = {}
         self.noFlapBias = 0.05
         self.pipeReward = -15
@@ -69,13 +71,27 @@ class Bot:
         self.counter += 1
         print(self.counter, score)
         self.sumScore+= score
-        plt.plot(self.counter, score, 'b.')
+        self.scoreList.append(score)
 
         if self.counter%self.sampleRate == 0:
+            self.saveQ()
+            self.dumpScores()
             self.epsilon *= 0.8
             plt.plot(self.counter, self.sumScore/self.sampleRate, 'ro')
             self.sumScore = 0
 
+    def dumpScores(self):
+        try:
+            with open(self.scoreFile, 'rb') as f:
+                temp = pickle.load(f)
+            temp+=(self.scoreList)
+        except FileNotFoundError:
+            temp = self.scoreList
+
+        with open(self.scoreFile,'wb') as f:
+            pickle.dump(temp,f)
+
+        self.scoreList=[]
 
     def saveQ(self):
         with open(self.fileName,'wb') as f:
