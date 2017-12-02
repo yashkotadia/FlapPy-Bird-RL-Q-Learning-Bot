@@ -1,5 +1,6 @@
 # FlapPy-Bird-Q-Learning-Bot
-A Q-Learning Bot to play the game Flappy Bird
+### A Q-Learning Bot to play the game Flappy Bird
+![300000 crossed!](https://github.com/yashkotadia/FlapPy-Bird-Q-Learning-Bot/blob/master/Results/High-Score.png)
 
 # Files
 1. assets: Sounds and images required to run the game
@@ -10,13 +11,17 @@ A Q-Learning Bot to play the game Flappy Bird
 
 4. bot.py: A bot(class) that takes care of Reinforcement Learning and generates results.
 
+5. plot-scores.py: Plotting the training curve from the scores file generated.
+
+6. scores.pkl: List of scores from the previous session
+
 # What is Q-Learning?
 
 
 ## Intuition
-#### The bird creates experiences tuples from all the <states,action> tuples and the associated rewards.
-#### The bot learns from the rewards positive/negative.
-#### It chooses action for the current state based on the experience.
+The bird creates experiences tuples from all the <states,action,reward> tuples collected while playing.  
+The bot learns from the positive/negative experiences.  
+It chooses action for the current state based on the experience.
 
 
 ## Certain Descriptions:
@@ -85,11 +90,15 @@ The learning rate is a constant 0.7
 ##### Hence, during the processing of past data, the values of recently updated tuple allows for faster propagation of Q-values across the table.
 
 ### Discretisation
-##### Divide the screen into grids of size n, where is the size of each discrete pixel group.
+##### Divide the screen into grids of size n, hence n is the size of each discrete pixel group.
 ##### Discretisation = 4 gives the best result on the game. Probable explantation would be that the game advances by 4 pixels in each episode
 
 
 ## Results
-![alt text](address of image)
+![Training Curve Discretisation-4](https://github.com/yashkotadia/FlapPy-Bird-Q-Learning-Bot/blob/master/Results/4.png)
+![Training Curve Discretisation-1](https://github.com/yashkotadia/FlapPy-Bird-Q-Learning-Bot/blob/master/Results/1.png)
+![Training Curve Discretisation-10](https://github.com/yashkotadia/FlapPy-Bird-Q-Learning-Bot/blob/master/Results/10.png)
 
-
+# Try it yourself
+1. Make sure the discretisation in flappy-bot.py, scores.pkl and Q-Table.pkl is the same
+2. Simply run flappy-bot.py
