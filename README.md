@@ -55,7 +55,7 @@ The model takes an action and updates a Q-Table value accordingly, once within e
 ## Algorithm:
 
 ### 1. Initialize gamma, alpha and rewards.
-#### The strategy for selecting each of the parameters is discussed further.
+The strategy for selecting each of the parameters is discussed further.
 ### 2. Initialize matrix Q to zero.
 ### 3. For each episode:
 #### i.   Select one among all possible actions for the current state.(Here, epsilon strategy)
@@ -91,14 +91,57 @@ Hence, during the processing of past data, the values of recently updated tuple 
 
 ### Discretisation
 Divide the screen into grids of size n, hence n is the size of each discrete pixel group.  
+This Reduces the state space and hence reduces the time required to learn.
 Discretisation = 4 gives the best result on the game. Probable explantation would be that the game advances by 4 pixels in each episode.
 
 
-## Results
+# Results
+
+### Note
+
+#### 1. Scoring is Learning
+The x-axis represents the number of games played. However this is not exactly an appropriate metric.  
+This is because the more it scores in a game, the more it learns from it.  
+The computation done over a period of time is same for both a low scoring model and a high scoring model.  
+However the higher scoring model will have played fewer games over that period than a higher scoring model.  
+This is an important point to consider when comparing models.
+#### 2. Exploration and Exploitation
+The model is coded to explore more in the start and hence will score lower.  
+The actual results will only be visible once it starts exploiting.  
+
+### Discretisation=10
+![Training Curve Discretisation-10](https://github.com/yashkotadia/FlapPy-Bird-Q-Learning-Bot/blob/master/Results/10.png)  
+It converges to an average score of 25 which is too less for a bot.  
+However it is quick and is useful for debugging.
+
+### Discretisation=4
+Here's where things start getting interesting!  
 ![Training Curve Discretisation-4](https://github.com/yashkotadia/FlapPy-Bird-Q-Learning-Bot/blob/master/Results/4.png)
+The model does fairly well until 32,500.  
+However it spikes up after that leading to an average score of 30,000 and probably more.  
+The scores start cross 1,00,000 mark. At this point it takes over a day to play 50 games.
+The model still doesnt seem to have converged and probably will do even better.  
+The reason for spiking could be a combined effect of learning and exploiting. Since the model has had over 3 billion episodes and epsilon has been reduced to a small value.
+
+### Discretisation=1
 ![Training Curve Discretisation-1](https://github.com/yashkotadia/FlapPy-Bird-Q-Learning-Bot/blob/master/Results/1.png)
-![Training Curve Discretisation-10](https://github.com/yashkotadia/FlapPy-Bird-Q-Learning-Bot/blob/master/Results/10.png)
+The model has learnt at a constant rate.
+However since the state space is too large, it would take too much time to train it.  
 
 # Try it yourself
 1. Make sure the discretisation in flappy-bot.py, scores.pkl and Q-Table.pkl is the same
-2. Simply run flappy-bot.py
+2. Simply run flappy-bot.py to start with the pretrained model
+3. Delete the files(scores.pkl, Q-Table.pkl) and then run flappy-bot.py to train from start.
+
+# Improvisation
+### 1. Learning Rate
+The current learning rate is purely based on my intuition.
+A strategy which reduces learning rate over time would make the model more stable.
+
+### 2. Discount Rate
+
+
+### 3. Efficiency
+The model is currently really slow to train.
+The graphical window part could be made optional so that it may be shut during training.
+It shall definitely make the model faster.
