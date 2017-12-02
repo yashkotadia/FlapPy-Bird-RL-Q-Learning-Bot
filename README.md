@@ -74,24 +74,24 @@ The Discount rate is chosen to be 0.9 on the assumption that it would be foresig
 The learning rate is a constant 0.7
 
 ### Rewards
-##### Score Point: 1, a reward of 1 is allocated for scoring a point.
-##### Die: -10, punishes the model for crash
-##### Upper Pipe Crash: -15, penalises the last jump that led to a crash into the upper pipe. This is done to overcome the tendency of the model to hit the upper pipe.
+Score Point: 1, a reward of 1 is allocated for scoring a point.  
+Die: -10, punishes the model for crash.  
+Upper Pipe Crash: -15, penalises the last jump that led to a crash into the upper pipe. This is done to overcome the tendency of the model to hit the upper pipe.  
 
 ### Epsilon-Greedy Q-Learning
-##### It is used to adjust the exploitation-exploration component.
-##### The algorithm starts with exploration which over time is converted to exploitation
+It is used to adjust the exploitation-exploration component.  
+The algorithm starts with exploration which over time is converted to exploitation.
 
 ### Reversal of list of Experience Tuples
-##### The list of experience tuples is reversed during updation of Q-Table
-##### This enables a faster propagation of Q-Values across the table
-##### The list of experience tuples starts with the first action being taken and ends with the last.
-##### If the updation occurs in the reverse manner, the future data is updated first.
-##### Hence, during the processing of past data, the values of recently updated tuple allows for faster propagation of Q-values across the table.
+The list of experience tuples is reversed during updation of Q-Table.  
+This enables a faster propagation of Q-Values across the table.  
+The list of experience tuples starts with the first action being taken and ends with the last.  
+If the updation occurs in the reverse manner, the future data is updated first.  
+Hence, during the processing of past data, the values of recently updated tuple allows for faster propagation of Q-values across the table.  
 
 ### Discretisation
-##### Divide the screen into grids of size n, hence n is the size of each discrete pixel group.
-##### Discretisation = 4 gives the best result on the game. Probable explantation would be that the game advances by 4 pixels in each episode
+Divide the screen into grids of size n, hence n is the size of each discrete pixel group.  
+Discretisation = 4 gives the best result on the game. Probable explantation would be that the game advances by 4 pixels in each episode.
 
 
 ## Results
