@@ -152,3 +152,4 @@ It shall definitely make the model faster.
 ## Credits
 1. Clone of Flappy Bird: https://github.com/sourabhv/FlapPyBird
 2. Reversal of experience list, Tendency to hit Upper Pipe: https://github.com/chncyhn/flappybird-qlearning-bot
+3. For a detailed and intuitive explanation on Q-Learning: http://mnemstudio.org/path-finding-q-learning-tutorial.htm
