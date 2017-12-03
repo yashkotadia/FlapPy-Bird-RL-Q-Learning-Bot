@@ -139,9 +139,16 @@ The current learning rate is purely based on my intuition.
 A strategy which reduces learning rate over time would make the model more stable.
 
 ### 2. Discount Rate
-
+Discount Rate is set to 0.9 assuming that the model should always be thinking about the future.  
+However the future consciousness must vary over an entire point.  
+That is the future is more important when pipe is far away, however when it is closer factoring the future would involve trying to figure out where the next pipe would be which of course is placed randomly.  
+Hence the discount rate must be made to vary over the course of scoring a point which is 24 episodes.
 
 ### 3. Efficiency
 The model is currently really slow to train.
 The graphical window part could be made optional so that it may be shut during training.
 It shall definitely make the model faster.
+
+## Credits
+1. Clone of Flappy Bird: https://github.com/sourabhv/FlapPyBird
+2. Reversal of experience list, Tendency to hit Upper Pipe: https://github.com/chncyhn/flappybird-qlearning-bot
