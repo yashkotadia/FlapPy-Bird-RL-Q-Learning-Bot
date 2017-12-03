@@ -5,7 +5,7 @@
 # Files
 1. assets: Sounds and images required to run the game
 
-2. flappy.py: Flappy Bird Clone (Credit: https://github.com/sourabhv/FlapPyBird)
+2. flappy.py: Flappy Bird Clone
 
 3. flappy-bot.py: Modification of flappy.py to incorporate the Q-Learning Bot (bot.py).
 
