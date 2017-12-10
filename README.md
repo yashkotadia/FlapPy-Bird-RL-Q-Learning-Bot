@@ -1,5 +1,5 @@
-# FlapPy-Bird-Q-Learning-Bot
-### A Q-Learning Bot to play the game Flappy Bird
+# FlapPy-Bird-RL-Q-Learning-Bot
+### A Reinforcement Learning Q-Learning Bot to play the game Flappy Bird
 ![300000 crossed!](https://github.com/yashkotadia/FlapPy-Bird-Q-Learning-Bot/blob/master/Results/High-Score.png)
 
 # Files
